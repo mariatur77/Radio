@@ -272,6 +272,159 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    @Test
+    public void CountStation1() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(1);
+
+
+        int expected = 1;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStationMid() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(15);
+
+
+        int expected = 15;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStationMax() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(29);
+
+
+        int expected = 29;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStation30() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(29);
+
+
+        int expected = 29;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStationNextZero() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(0);
+
+        radio.next();
+
+        int expected = 1;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStationNextMid() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(14);
+
+        radio.next();
+
+        int expected = 15;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStationNextLastStation() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(28);
+
+        radio.next();
+
+        int expected = 29;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStationLast() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(29);
+
+        radio.next();
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStationPrevStationLast() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(0);
+
+        radio.prev();
+
+        int expected = 29;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStationPrevStationMid() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(16);
+
+        radio.prev();
+
+        int expected = 15;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStationPrevStation1() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(1);
+
+        radio.prev();
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void CountStationPrevMax() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(29);
+
+        radio.prev();
+
+        int expected = 28;
+        int actual = radio.getCurrentStation();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
 }
 
 
